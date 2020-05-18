@@ -81,7 +81,8 @@ public:
    *  \brief      This method refreshes the list of beliefs
    **********************************************************************************************************************/
   void listOfBeliefsCallback(const aerostack_msgs::ListOfBeliefs& msg);
-
+  int position_x=405;
+  int position_y=-395; 
 private:
   Ui::BeliefMemoryViewer* ui;
 
@@ -155,7 +156,7 @@ public Q_SLOTS:
   /*!************************************************************************
    *  \brief   Activated when a window is closed.
    ***************************************************************************/
-  void windowOpenCallback(const aerostack_msgs::WindowEvent& msg);
+  //void windowOpenCallback(const aerostack_msgs::WindowEvent& msg);
   /*!************************************************************************
    *  \brief  Kills the process
    ***************************************************************************/

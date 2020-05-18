@@ -82,21 +82,21 @@ BeliefMemoryViewer::BeliefMemoryViewer(int argc, char** argv, QWidget* parent) :
   // reads layout file
   namespace pt = boost::property_tree;
 
-  std::string layout_dir = std::getenv("AEROSTACK_STACK") + std::string("/stack/ground_control_system/"
-                                                                        "graphical_user_interface/layouts/layout.json");
+  //std::string layout_dir = std::getenv("AEROSTACK_STACK") + std::string("/stack/ground_control_system/"
+                                                                       // "graphical_user_interface/layouts/layout.json");
 
-  pt::read_json(layout_dir, root);
+  //pt::read_json(layout_dir, root);
 
   QScreen* screen = QGuiApplication::primaryScreen();
   QRect screenGeometry = screen->geometry();
 
   int y0 = screenGeometry.height() / 2;
   int x0 = screenGeometry.width() / 2;
-  int height = root.get<int>("EXECUTION_VIEWER.height");
-  int width = root.get<int>("EXECUTION_VIEWER.width");
+  int height = 500;//root.get<int>("EXECUTION_VIEWER.height");
+  int width = 500;//root.get<int>("EXECUTION_VIEWER.width");
 
   this->resize(width, height);
-  this->move(x0 + root.get<int>("EXECUTION_VIEWER.position.x"), y0 + root.get<int>("EXECUTION_VIEWER.position.y"));
+  this->move(x0 + position_x/*root.get<int>("EXECUTION_VIEWER.position.x")*/, y0 + position_y/*root.get<int>("EXECUTION_VIEWER.position.y")*/);
 
   // Settings connections
   setUp();
@@ -114,12 +114,12 @@ void BeliefMemoryViewer::setUp()
 
 
   // Subscribers
-  window_event_sub =
-      n.subscribe("/" + drone_id_namespace + "/" + window_event_topic, 10, &BeliefMemoryViewer::windowOpenCallback, this);
+  //window_event_sub =
+    //  n.subscribe("/" + drone_id_namespace + "/" + window_event_topic, 10, &BeliefMemoryViewer::windowOpenCallback, this);
 
   // Publishers
-  window_event_pub =
-      n.advertise<aerostack_msgs::WindowEvent>("/" + drone_id_namespace + "/" + window_event_topic, 1, true);
+  //window_event_pub =
+   //   n.advertise<aerostack_msgs::WindowEvent>("/" + drone_id_namespace + "/" + window_event_topic, 1, true);
 }
 
 
@@ -267,7 +267,7 @@ void BeliefMemoryViewer::killMe()
 #endif  // Q_OS_WIN
 }
 
-void BeliefMemoryViewer::windowOpenCallback(const aerostack_msgs::WindowEvent& msg)
+/*void BeliefMemoryViewer::windowOpenCallback(const aerostack_msgs::WindowEvent& msg)
 {
  
   if ( msg.window == aerostack_msgs::WindowEvent::ALPHANUMERIC_INTERFACE_CONTROL )
@@ -280,4 +280,4 @@ void BeliefMemoryViewer::windowOpenCallback(const aerostack_msgs::WindowEvent& m
 
   if (msg.window == aerostack_msgs::WindowEvent::INTEGRATED_VIEWER && msg.event == aerostack_msgs::WindowEvent::MINIMIZE)
     showMinimized();
-}
+}*/
