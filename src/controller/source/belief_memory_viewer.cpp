@@ -248,9 +248,9 @@ const std::string BeliefMemoryViewer::deSerialization(const std::string input)
 }
 void BeliefMemoryViewer::closeEvent(QCloseEvent* event)
 {
-  window_event_msg.window = aerostack_msgs::WindowEvent::EXECUTION_VIEWER;
-  window_event_msg.event = aerostack_msgs::WindowEvent::CLOSE;
-  window_event_pub.publish(window_event_msg);
+  //window_event_msg.window = aerostack_msgs::WindowEvent::EXECUTION_VIEWER;
+  //window_event_msg.event = aerostack_msgs::WindowEvent::CLOSE;
+  //window_event_pub.publish(window_event_msg);
 }
 
 void BeliefMemoryViewer::killMe()
