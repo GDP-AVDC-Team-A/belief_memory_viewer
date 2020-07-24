@@ -37,7 +37,6 @@
 #include <droneMsgsROS/ListOfBehaviors.h>
 #include <droneMsgsROS/RemoveBelief.h>
 #include <aerostack_msgs/ListOfBeliefs.h>
-#include "aerostack_msgs/WindowEvent.h"
 #include <thread>
 #include <chrono>
 
@@ -109,7 +108,7 @@ private:
 
   std::string window_event_topic;
 
-  aerostack_msgs::WindowEvent window_event_msg;
+  //aerostack_msgs::WindowEvent window_event_msg;
 
 
   boost::property_tree::ptree root;
